@@ -6,9 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-#[Fillable(['subscription_package_id', 'user_id'])]
+#[Fillable(['subscription_package_id', 'user_id', 'expired_date'])]
 class SubscriptionUser extends Model
 {
+    protected $table = 'subscription_package_users';
     public function subscriptionPackage(): BelongsTo
     {
         return $this->belongsTo(SubscriptionPackage::class);

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In | Marvel Comics</title>
+    <title>Create Account | Marvel Comics</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700;800;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -51,7 +51,7 @@
         }
         .marvel-auth-card {
             width: 100%;
-            max-width: 440px;
+            max-width: 460px;
             background-color: #1a1a1a;
             border: 1px solid #333333;
             border-radius: 6px;
@@ -179,24 +179,6 @@
         .back-home:hover {
             color: #ffffff;
         }
-        .demo-credentials-box {
-            background-color: #222222;
-            border-left: 3px solid #e62429;
-            padding: 10px 14px;
-            margin-bottom: 1.25rem;
-            border-radius: 0 4px 4px 0;
-            font-size: 12px;
-            color: #bbbbbb;
-        }
-        .demo-credentials-box strong {
-            color: #ffffff;
-        }
-        .demo-credentials-box code {
-            color: #ff7675;
-            background: #2d2d2d;
-            padding: 2px 6px;
-            border-radius: 3px;
-        }
     </style>
 </head>
 <body>
@@ -213,21 +195,8 @@
             </a>
         </div>
 
-        <h1 class="marvel-auth-title">MASUK KE AKUN MARVEL</h1>
-        <p class="marvel-auth-subtitle">Akses koleksi komik dan semesta Marvel favoritmu</p>
-
-        <!-- Akun Demo Cepat -->
-        <div class="demo-credentials-box">
-            <div class="fw-bold text-white mb-1"><i class="fa-solid fa-circle-info text-danger me-1"></i> Akun Pengujian Tersedia:</div>
-            <div>Email: <code>fazriel@marvel.com</code></div>
-            <div>Password: <code>password123</code></div>
-        </div>
-
-        @if (session('success'))
-            <div class="alert alert-success py-2 px-3 mb-3 text-white bg-success border-0 rounded-1" style="font-size: 13px;">
-                <i class="fa-solid fa-circle-check me-1"></i> {{ session('success') }}
-            </div>
-        @endif
+        <h1 class="marvel-auth-title">BUAT AKUN MARVEL</h1>
+        <p class="marvel-auth-subtitle">Gabung dan nikmati ribuan komik dan cerita epik Marvel</p>
 
         @if (isset($errors) && $errors->any())
             <div class="alert alert-danger py-2 px-3 mb-3 text-white bg-danger border-0 rounded-1" style="font-size: 13px;">
@@ -235,33 +204,36 @@
             </div>
         @endif
 
-        <form action="{{ url('/login') }}" method="POST">
+        <form action="{{ url('/register') }}" method="POST">
             @csrf
 
             <div class="mb-3">
-                <label for="email" class="form-label">Alamat Email</label>
-                <input type="email" name="email" id="email" class="form-control marvel-input @error('email') is-invalid @enderror" value="{{ old('email', 'fazriel@marvel.com') }}" placeholder="nama@marvel.com" required autofocus>
+                <label for="name" class="form-label">Nama Lengkap</label>
+                <input type="text" name="name" id="name" class="form-control marvel-input @error('name') is-invalid @enderror" value="{{ old('name') }}" placeholder="Contoh: Peter Parker" required autofocus>
             </div>
 
             <div class="mb-3">
-                <div class="d-flex justify-content-between align-items-center mb-1">
-                    <label for="password" class="form-label mb-0">Kata Sandi</label>
-                </div>
-                <input type="password" name="password" id="password" class="form-control marvel-input @error('password') is-invalid @enderror" placeholder="••••••••" required>
+                <label for="email" class="form-label">Alamat Email</label>
+                <input type="email" name="email" id="email" class="form-control marvel-input @error('email') is-invalid @enderror" value="{{ old('email') }}" placeholder="nama@marvel.com" required>
             </div>
 
-            <div class="mb-3 form-check">
-                <input type="checkbox" name="remember" class="form-check-input bg-dark border-secondary" id="remember">
-                <label class="form-check-label text-secondary" for="remember" style="font-size: 13px;">Ingat Saya</label>
+            <div class="mb-3">
+                <label for="password" class="form-label">Kata Sandi</label>
+                <input type="password" name="password" id="password" class="form-control marvel-input @error('password') is-invalid @enderror" placeholder="Minimal 6 karakter" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="password_confirmation" class="form-label">Konfirmasi Kata Sandi</label>
+                <input type="password" name="password_confirmation" id="password_confirmation" class="form-control marvel-input" placeholder="Ulangi kata sandi" required>
             </div>
 
             <button type="submit" class="marvel-btn-submit">
-                MASUK SEKARANG <i class="fa-solid fa-arrow-right ms-1"></i>
+                DAFTAR SEKARANG <i class="fa-solid fa-user-plus ms-1"></i>
             </button>
         </form>
 
         <div class="marvel-footer-text">
-            Belum punya akun? <a href="{{ route('register') }}">DAFTAR SEKARANG</a>
+            Sudah punya akun? <a href="{{ route('login') }}">MASUK DI SINI</a>
         </div>
     </div>
 </div>
