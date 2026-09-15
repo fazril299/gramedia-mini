@@ -14,28 +14,14 @@
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,400;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet">
-      <style>
-          html {
-              scrollbar-color: #e62429 #111111;
-              scrollbar-width: thin;
-          }
-          ::-webkit-scrollbar {
-              width: 8px;
-          }
-          ::-webkit-scrollbar-track {
-              background: #111111;
-          }
-          ::-webkit-scrollbar-thumb {
-              background: #e62429;
-          }
-          ::-webkit-scrollbar-thumb:hover {
-              background: #b51a1e;
-          }
-      </style>
+    {{-- Marvel Core Custom Stylesheet --}}
+    <link rel="stylesheet" href="{{ asset('css/marvel.css') }}">
 </head>
 <body>
     @yield('content')
 
     <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.5.1/dist/js/tabler.min.js"></script>
+    {{-- Marvel Core Custom Scripts --}}
+    <script src="{{ asset('js/marvel.js') }}"></script>
 </body>
 </html>
