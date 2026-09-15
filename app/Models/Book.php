@@ -37,4 +37,12 @@ class Book extends Model
     {
         return $this->hasMany(SubscriptionPackageBook::class);
     }
+
+    /**
+     * Harga asli sebelum diskon promo Rp 0
+     */
+    public function getOriginalPriceAttribute(): int
+    {
+        return 129000;
+    }
 };

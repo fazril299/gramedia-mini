@@ -23,21 +23,21 @@ class SubscriptionPackageController extends Controller
                     'name_package' => 'Monthly',
                     'price' => 149000,
                     'color' => '#202020',
-                    'description' => 'Akses penuh ke 30.000+ komik digital, rilis mingguan terbaru, baca offline di iOS dan Android.',
+                    'description' => 'Unlimited access to 30,000+ digital comics, weekly new releases, offline reading on iOS and Android.',
                 ],
                 (object) [
                     'id' => 2,
                     'name_package' => 'Annual (Best Value)',
                     'price' => 999000,
                     'color' => '#e62429',
-                    'description' => 'Hemat lebih dari 40% dibanding bulanan, termasuk 7-day free trial, dan akses eksklusif Infinity Comics.',
+                    'description' => 'Save over 40% vs monthly, includes 7-day free trial, and exclusive Infinity Comics access.',
                 ],
                 (object) [
                     'id' => 3,
                     'name_package' => 'Annual Plus (Collector)',
                     'price' => 1499000,
                     'color' => '#d4af37',
-                    'description' => 'Semua fitur Annual ditambah Exclusive Membership Kit fisik: Action figure Marvel Legends eksklusif, 2 komik varian, pin & patch resmi, serta diskon 10% di Disney Store.',
+                    'description' => 'All Annual features plus physical Exclusive Membership Kit: Exclusive Marvel Legends figure, 2 variant comics, official pin & patch, and 10% discount at Disney Store.',
                 ],
             ]);
         }
@@ -60,7 +60,7 @@ class SubscriptionPackageController extends Controller
     public function subscribe(Request $request, $id)
     {
         if (!Auth::check()) {
-            return redirect()->route('login')->with('error', 'Silakan masuk terlebih dahulu untuk mulai berlangganan Marvel Unlimited.');
+            return redirect()->route('login')->with('error', 'Please sign in first to subscribe to Marvel Unlimited.');
         }
 
         $package = SubscriptionPackage::findOrFail($id);
@@ -73,6 +73,6 @@ class SubscriptionPackageController extends Controller
             'expired_date' => now()->addDays($days),
         ]);
 
-        return redirect()->route('unlimited')->with('success', 'Selamat! Anda telah resmi berlangganan paket ' . $package->name_package . '. Selamat menikmati akses ke 30.000+ komik Marvel!');
+        return redirect()->route('unlimited')->with('success', 'Congratulations! You are now subscribed to ' . $package->name_package . '. Enjoy unlimited access to 30,000+ Marvel comics!');
     }
 }

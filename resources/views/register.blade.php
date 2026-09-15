@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -186,7 +186,7 @@
 <div class="marvel-auth-container">
     <div class="marvel-auth-card">
         <a href="{{ route('home') }}" class="back-home">
-            <i class="fa-solid fa-arrow-left"></i> KEMBALI KE BERANDA
+            <i class="fa-solid fa-arrow-left"></i> BACK TO HOME
         </a>
 
         <div class="marvel-brand-badge">
@@ -195,8 +195,8 @@
             </a>
         </div>
 
-        <h1 class="marvel-auth-title">BUAT AKUN MARVEL</h1>
-        <p class="marvel-auth-subtitle">Gabung dan nikmati ribuan komik dan cerita epik Marvel</p>
+        <h1 class="marvel-auth-title">CREATE MARVEL ACCOUNT</h1>
+        <p class="marvel-auth-subtitle">Join now to explore thousands of comics and epic Marvel stories</p>
 
         @if (isset($errors) && $errors->any())
             <div class="alert alert-danger py-2 px-3 mb-3 text-white bg-danger border-0 rounded-1" style="font-size: 13px;">
@@ -208,32 +208,32 @@
             @csrf
 
             <div class="mb-3">
-                <label for="name" class="form-label">Nama Lengkap</label>
-                <input type="text" name="name" id="name" class="form-control marvel-input @error('name') is-invalid @enderror" value="{{ old('name') }}" placeholder="Contoh: Peter Parker" required autofocus>
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" name="name" id="name" class="form-control marvel-input @error('name') is-invalid @enderror" value="{{ old('name') }}" placeholder="e.g. Peter Parker" required autofocus>
             </div>
 
             <div class="mb-3">
-                <label for="email" class="form-label">Alamat Email</label>
-                <input type="email" name="email" id="email" class="form-control marvel-input @error('email') is-invalid @enderror" value="{{ old('email') }}" placeholder="nama@marvel.com" required>
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" name="email" id="email" class="form-control marvel-input @error('email') is-invalid @enderror" value="{{ old('email') }}" placeholder="name@marvel.com" required>
             </div>
 
             <div class="mb-3">
-                <label for="password" class="form-label">Kata Sandi</label>
-                <input type="password" name="password" id="password" class="form-control marvel-input @error('password') is-invalid @enderror" placeholder="Minimal 6 karakter" required>
+                <label for="password" class="form-label">Password</label>
+                <input type="password" name="password" id="password" class="form-control marvel-input @error('password') is-invalid @enderror" placeholder="At least 6 characters" required>
             </div>
 
             <div class="mb-3">
-                <label for="password_confirmation" class="form-label">Konfirmasi Kata Sandi</label>
-                <input type="password" name="password_confirmation" id="password_confirmation" class="form-control marvel-input" placeholder="Ulangi kata sandi" required>
+                <label for="password_confirmation" class="form-label">Confirm Password</label>
+                <input type="password" name="password_confirmation" id="password_confirmation" class="form-control marvel-input" placeholder="Re-enter password" required>
             </div>
 
             <button type="submit" class="marvel-btn-submit">
-                DAFTAR SEKARANG <i class="fa-solid fa-user-plus ms-1"></i>
+                CREATE ACCOUNT NOW <i class="fa-solid fa-user-plus ms-1"></i>
             </button>
         </form>
 
         <div class="marvel-footer-text">
-            Sudah punya akun? <a href="{{ route('login') }}">MASUK DI SINI</a>
+            Already have an account? <a href="{{ route('login') }}">SIGN IN HERE</a>
         </div>
     </div>
 </div>

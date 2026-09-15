@@ -9,12 +9,14 @@ use Tests\TestCase;
 
 class AuthTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function test_login_screen_can_be_rendered(): void
     {
         $response = $this->get('/login');
 
         $response->assertStatus(200);
-        $response->assertSee('MASUK KE AKUN MARVEL');
+        $response->assertSee('SIGN IN TO MARVEL');
     }
 
     public function test_register_screen_can_be_rendered(): void
@@ -22,12 +24,12 @@ class AuthTest extends TestCase
         $response = $this->get('/register');
 
         $response->assertStatus(200);
-        $response->assertSee('BUAT AKUN MARVEL');
+        $response->assertSee('CREATE MARVEL ACCOUNT');
     }
 
     public function test_users_can_authenticate_using_the_login_screen(): void
     {
-        $user = User::firstOrCreate(
+        $user = User::updateOrCreate(
             ['email' => 'fazriel@marvel.com'],
             ['name' => 'Fazriel', 'password' => Hash::make('password123')]
         );
@@ -43,7 +45,7 @@ class AuthTest extends TestCase
 
     public function test_users_can_not_authenticate_with_invalid_password(): void
     {
-        $user = User::firstOrCreate(
+        $user = User::updateOrCreate(
             ['email' => 'fazriel@marvel.com'],
             ['name' => 'Fazriel', 'password' => Hash::make('password123')]
         );
@@ -58,7 +60,7 @@ class AuthTest extends TestCase
 
     public function test_users_can_logout(): void
     {
-        $user = User::firstOrCreate(
+        $user = User::updateOrCreate(
             ['email' => 'fazriel@marvel.com'],
             ['name' => 'Fazriel', 'password' => Hash::make('password123')]
         );
@@ -74,8 +76,8 @@ class AuthTest extends TestCase
         $response = $this->get('/');
 
         $response->assertStatus(200);
-        $response->assertSee('SIGN IN');
-        $response->assertSee('JOIN');
+        $response->assertSee('LOG IN');
+        $response->assertSee('SIGN UP');
     }
 
     public function test_home_screen_displays_user_name_and_dropdown_when_logged_in(): void

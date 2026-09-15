@@ -7,15 +7,19 @@
         scrollbar-color: #e62429 #111111;
         scrollbar-width: thin;
     }
+
     ::-webkit-scrollbar {
         width: 8px;
     }
+
     ::-webkit-scrollbar-track {
         background: #111111;
     }
+
     ::-webkit-scrollbar-thumb {
         background: #e62429;
     }
+
     ::-webkit-scrollbar-thumb:hover {
         background: #b51a1e;
     }
@@ -82,8 +86,9 @@
         transition: color 0.15s ease, background-color 0.15s ease;
     }
 
-    .marvel-nav-cell + .marvel-nav-cell {
-        border-left: none; /* Avoid duplicate borders between adjacent cells */
+    .marvel-nav-cell+.marvel-nav-cell {
+        border-left: none;
+        /* Avoid duplicate borders between adjacent cells */
     }
 
     .marvel-nav-cell:hover {
@@ -92,7 +97,8 @@
     }
 
     .marvel-nav-cell::after {
-        display: none !important; /* Hide dropdown arrow */
+        display: none !important;
+        /* Hide dropdown arrow */
     }
 
     .marvel-user-icon {
@@ -376,8 +382,15 @@
     }
 
     @keyframes marvelFade {
-        from { opacity: 0; transform: translateY(-6px); }
-        to { opacity: 1; transform: translateY(0); }
+        from {
+            opacity: 0;
+            transform: translateY(-6px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     .marvel-search-wrap {
@@ -434,9 +447,11 @@
             display: flex;
             align-items: center;
         }
+
         .marvel-nav-primary {
             display: none;
         }
+
         .marvel-promo-item {
             display: none;
         }
@@ -451,7 +466,7 @@
         margin: 0;
         padding: 0;
         overflow: hidden;
-        background-color: #0b0c10;
+        background-color: #121212;
     }
 
     .marvel-masthead,
@@ -461,6 +476,7 @@
     }
 
     @media (max-width: 991px) {
+
         .marvel-masthead,
         .marvel-masthead .carousel-item,
         .marvel-slide {
@@ -468,11 +484,21 @@
         }
     }
 
-    @media (max-width: 576px) {
+    @media (max-width: 768px) {
+
         .marvel-masthead,
         .marvel-masthead .carousel-item,
         .marvel-slide {
             height: 420px;
+        }
+    }
+
+    @media (max-width: 480px) {
+
+        .marvel-masthead,
+        .marvel-masthead .carousel-item,
+        .marvel-slide {
+            height: 380px;
         }
     }
 
@@ -481,13 +507,13 @@
         width: 100%;
         height: 100%;
         overflow: hidden;
-        background-color: #111111;
+        background-color: #151515;
     }
 
     .marvel-masthead.carousel-fade .carousel-item {
         opacity: 0;
         transition-property: opacity;
-        transition-duration: 0.8s;
+        transition-duration: 0.7s;
         transition-timing-function: ease-in-out;
     }
 
@@ -502,30 +528,32 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: center center;
+        object-position: center top;
         z-index: 1;
-        background-color: #111111;
-        transform: scale(1.02);
-        transition: transform 6s cubic-bezier(0.16, 1, 0.3, 1);
+        background-color: transparent;
+        filter: brightness(1.05) contrast(1.02);
+        transform: scale(1.01);
+        transition: transform 6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
     }
 
     .carousel-item.active .marvel-slide-img {
-        transform: scale(1.06);
+        transform: scale(1.05);
     }
 
+    /* Soft Marvel Gradient: Keeps character artwork 100% bright and radiant */
     .marvel-gradient-overlay {
         position: absolute;
         inset: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(90deg, rgba(11, 12, 16, 0.95) 0%, rgba(11, 12, 16, 0.82) 35%, rgba(11, 12, 16, 0.35) 68%, rgba(11, 12, 16, 0) 100%);
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.45) 26%, rgba(0, 0, 0, 0.1) 48%, transparent 62%);
         pointer-events: none;
         z-index: 2;
     }
 
     @media (max-width: 768px) {
         .marvel-gradient-overlay {
-            background: linear-gradient(180deg, rgba(11, 12, 16, 0.25) 0%, rgba(11, 12, 16, 0.75) 45%, rgba(11, 12, 16, 0.96) 100%);
+            background: linear-gradient(180deg, transparent 30%, rgba(0, 0, 0, 0.45) 60%, rgba(0, 0, 0, 0.88) 100%);
         }
     }
 
@@ -540,12 +568,12 @@
     @media (max-width: 768px) {
         .marvel-content-container {
             align-items: flex-end;
-            padding-bottom: 3.5rem;
+            padding-bottom: 3.2rem;
         }
     }
 
     .marvel-content-box {
-        max-width: 580px;
+        max-width: 540px;
         text-align: left;
     }
 
@@ -560,29 +588,29 @@
         border: 1px solid rgba(255, 255, 255, 0.8);
         padding: 4px 14px;
         margin-bottom: 12px;
-        background: rgba(0, 0, 0, 0.3);
+        background: rgba(0, 0, 0, 0.35);
         backdrop-filter: blur(4px);
     }
 
     .marvel-title {
         font-family: 'Roboto Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        font-size: clamp(26px, 3.8vw, 46px);
+        font-size: clamp(26px, 3.6vw, 44px);
         font-weight: 900;
         line-height: 1.05;
         letter-spacing: -0.5px;
         text-transform: uppercase;
         color: #ffffff;
         margin-bottom: 14px;
-        text-shadow: 0 3px 12px rgba(0, 0, 0, 0.85);
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 0, 0, 0.8);
     }
 
     .marvel-desc {
         font-size: 15px;
         line-height: 1.55;
-        color: rgba(255, 255, 255, 0.88);
+        color: #f1f1f1;
         margin-bottom: 22px;
-        max-width: 500px;
-        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+        max-width: 490px;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
     }
 
     .marvel-btn {
@@ -679,9 +707,52 @@
         background-color: #e62429 !important;
     }
 
+    .marvel-book-card {
+        background-color: #1a1a1a;
+        border: 1px solid #2d2d2d;
+        border-radius: 0;
+        transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .marvel-book-card:hover {
+        transform: translateY(-5px);
+        border-color: #e62429;
+        box-shadow: 0 12px 28px rgba(230, 36, 41, 0.25);
+    }
+
     .book-cover {
-        aspect-ratio: 3 / 4;
+        aspect-ratio: 2 / 3;
         object-fit: cover;
+        width: 100%;
+        background-color: #111111;
+        transition: transform 0.3s ease;
+        display: block;
+    }
+
+    .marvel-book-card:hover .book-cover {
+        transform: scale(1.03);
+    }
+
+    .text-truncate-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .marvel-btn-clip {
+        clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+        background-color: #e62429;
+        border: none;
+        color: #ffffff !important;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .marvel-btn-clip:hover {
+        background-color: #b51a1e;
+        transform: translateY(-1px);
     }
 </style>
 
@@ -694,77 +765,77 @@
             <div class="marvel-nav-left">
                 <button class="marvel-hamburger-btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#marvelMobileMenu" aria-controls="marvelMobileMenu" aria-label="Toggle Menu">
                     <svg aria-hidden="true" height="20" viewBox="0 0 32 32" width="20" xmlns="http://www.w3.org/2000/svg">
-                        <path fill="#ffffff" d="M28 24v2.667H4V24h24zm0-9.333v2.667H4v-2.667h24zm0-9.334V8H4V5.333h24z"/>
+                        <path fill="#ffffff" d="M28 24v2.667H4V24h24zm0-9.333v2.667H4v-2.667h24zm0-9.334V8H4V5.333h24z" />
                     </svg>
                 </button>
 
                 @auth
-                    <!-- Logged In: Displays Single Box with Username and Authentic Marvel Dropdown Menu -->
-                    <div class="dropdown h-100">
-                        <a href="#" class="marvel-nav-cell" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="marvel-user-icon">
-                                <svg aria-hidden="true" height="18" viewBox="0 0 24 24" width="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="10"/>
-                                    <circle cx="12" cy="10" r="3.2"/>
-                                    <path d="M6.2 18.5a6 6 0 0 1 11.6 0"/>
-                                </svg>
-                            </span>
-                            <span>{{ strtoupper(Auth::user()->name) }}</span>
-                        </a>
-                        <div class="dropdown-menu marvel-user-dropdown dropdown-menu-dark shadow-lg">
-                            <!-- Gold Warning Banner: Email Verification -->
-                            <div class="marvel-dropdown-gold">
-                                <p>Verify Your Email To Complete Registration.</p>
-                                <a href="javascript:void(0)" onclick="alert('Email konfirmasi telah dikirim ulang ke {{ Auth::user()->email }}!')">RESEND CONFIRMATION</a>
-                            </div>
-
-                            <!-- Marvel Unlimited Instant Access Banner -->
-                            <a href="{{ route('unlimited') }}" class="marvel-dropdown-promo">
-                                <svg width="36" height="40" viewBox="0 0 44 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M6 4h10v24c0 3.3 2.7 6 6 6s6-2.7 6-6V4h10v24c0 8.8-7.2 16-16 16S6 36.8 6 28V4z" fill="#0072D2" stroke="#ffffff" stroke-width="2.5"/>
-                                    <rect x="1" y="15" width="42" height="15" fill="#e62429"/>
-                                    <text x="22" y="26.5" fill="#ffffff" font-family="'Impact', 'Roboto Condensed', sans-serif" font-weight="900" font-size="10.5" text-anchor="middle" letter-spacing="0.5">MARVEL</text>
-                                    <text x="22" y="44" fill="#ffffff" font-family="'Roboto Condensed', sans-serif" font-weight="900" font-size="6.5" text-anchor="middle" letter-spacing="0.5">UNLIMITED</text>
-                                </svg>
-                                <div class="marvel-dropdown-promo-text">
-                                    GET INSTANT ACCESS<br>30,000+ DIGITAL COMICS!
-                                </div>
-                            </a>
-
-                            <!-- Menu Links matching reference image -->
-                            <ul class="marvel-dropdown-menu-list">
-                                <li><a class="marvel-dropdown-link" href="#koleksi">MY DIGITAL COMICS PURCHASES</a></li>
-                                <li><a class="marvel-dropdown-link text-danger" href="{{ route('unlimited') }}">MARVEL UNLIMITED</a></li>
-                                <li><a class="marvel-dropdown-link" href="#">HELP/FAQS</a></li>
-                                <li><a class="marvel-dropdown-link" href="#">ACCOUNT SETTINGS</a></li>
-                                <li>
-                                    <form id="marvel-logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                    <button type="button" class="marvel-dropdown-link text-danger" onclick="document.getElementById('marvel-logout-form').submit();">
-                                        LOG OUT
-                                    </button>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                @else
-                    <!-- Guest: Exactly Two Distinct Boxed Cells Matching media_1789372176949.png -->
-                    <!-- Cell 1: LOG IN -->
-                    <a href="{{ route('login') }}" class="marvel-nav-cell" title="Log In">
+                <!-- Logged In: Displays Single Box with Username and Authentic Marvel Dropdown Menu -->
+                <div class="dropdown h-100">
+                    <a href="#" class="marvel-nav-cell" data-bs-toggle="dropdown" aria-expanded="false">
                         <span class="marvel-user-icon">
                             <svg aria-hidden="true" height="18" viewBox="0 0 24 24" width="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10"/>
-                                <circle cx="12" cy="10" r="3.2"/>
-                                <path d="M6.2 18.5a6 6 0 0 1 11.6 0"/>
+                                <circle cx="12" cy="12" r="10" />
+                                <circle cx="12" cy="10" r="3.2" />
+                                <path d="M6.2 18.5a6 6 0 0 1 11.6 0" />
                             </svg>
                         </span>
-                        <span>LOG IN</span>
+                        <span>{{ strtoupper(Auth::user()->name) }}</span>
                     </a>
-                    <!-- Cell 2: SIGN UP -->
-                    <a href="{{ route('register') }}" class="marvel-nav-cell" title="Sign Up">
-                        <span>SIGN UP</span>
-                    </a>
+                    <div class="dropdown-menu marvel-user-dropdown dropdown-menu-dark shadow-lg">
+                        <!-- Gold Warning Banner: Email Verification -->
+                        <div class="marvel-dropdown-gold">
+                            <p>Verify Your Email To Complete Registration.</p>
+                            <a href="javascript:void(0)" onclick="alert('Confirmation email has been resent to {{ Auth::user()->email }}!')">RESEND CONFIRMATION</a>
+                        </div>
+
+                        <!-- Marvel Unlimited Instant Access Banner -->
+                        <a href="{{ route('unlimited') }}" class="marvel-dropdown-promo">
+                            <svg width="36" height="40" viewBox="0 0 44 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 4h10v24c0 3.3 2.7 6 6 6s6-2.7 6-6V4h10v24c0 8.8-7.2 16-16 16S6 36.8 6 28V4z" fill="#0072D2" stroke="#ffffff" stroke-width="2.5" />
+                                <rect x="1" y="15" width="42" height="15" fill="#e62429" />
+                                <text x="22" y="26.5" fill="#ffffff" font-family="'Impact', 'Roboto Condensed', sans-serif" font-weight="900" font-size="10.5" text-anchor="middle" letter-spacing="0.5">MARVEL</text>
+                                <text x="22" y="44" fill="#ffffff" font-family="'Roboto Condensed', sans-serif" font-weight="900" font-size="6.5" text-anchor="middle" letter-spacing="0.5">UNLIMITED</text>
+                            </svg>
+                            <div class="marvel-dropdown-promo-text">
+                                GET INSTANT ACCESS<br>30,000+ DIGITAL COMICS!
+                            </div>
+                        </a>
+
+                        <!-- Menu Links matching reference image -->
+                        <ul class="marvel-dropdown-menu-list">
+                            <li><a class="marvel-dropdown-link" href="#koleksi">MY DIGITAL COMICS PURCHASES</a></li>
+                            <li><a class="marvel-dropdown-link text-danger" href="{{ route('unlimited') }}">MARVEL UNLIMITED</a></li>
+                            <li><a class="marvel-dropdown-link" href="#">HELP/FAQS</a></li>
+                            <li><a class="marvel-dropdown-link" href="#">ACCOUNT SETTINGS</a></li>
+                            <li>
+                                <form id="marvel-logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                                <button type="button" class="marvel-dropdown-link text-danger" onclick="document.getElementById('marvel-logout-form').submit();">
+                                    LOG OUT
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                @else
+                <!-- Guest: Exactly Two Distinct Boxed Cells Matching media_1789372176949.png -->
+                <!-- Cell 1: LOG IN -->
+                <a href="{{ route('login') }}" class="marvel-nav-cell" title="Log In">
+                    <span class="marvel-user-icon">
+                        <svg aria-hidden="true" height="18" viewBox="0 0 24 24" width="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <circle cx="12" cy="10" r="3.2" />
+                            <path d="M6.2 18.5a6 6 0 0 1 11.6 0" />
+                        </svg>
+                    </span>
+                    <span>LOG IN</span>
+                </a>
+                <!-- Cell 2: SIGN UP -->
+                <a href="{{ route('register') }}" class="marvel-nav-cell" title="Sign Up">
+                    <span>SIGN UP</span>
+                </a>
                 @endauth
             </div>
 
@@ -777,8 +848,8 @@
             <div class="marvel-nav-right">
                 <a href="{{ route('unlimited') }}" class="marvel-promo-cell">
                     <svg aria-hidden="true" height="26" viewBox="0 0 32 32" width="20" xmlns="http://www.w3.org/2000/svg">
-                        <path fill="#fff" d="M22.31 32l3.37-32L1.89 6.85.14 20.47C-.81 27.74 3.12 32 10.22 32h12.09z"/>
-                        <path fill="#e62429" d="M16.51 3.68l-1.14.33-2.73 21.87h-1.67c-.95 0-1.59-.75-1.47-1.7l2.34-19.15L2.86 7.6 1.22 20.46c-.85 6.38 2.35 10.39 9.11 10.39H21.3l3.07-29.43-7.86 2.26z"/>
+                        <path fill="#fff" d="M22.31 32l3.37-32L1.89 6.85.14 20.47C-.81 27.74 3.12 32 10.22 32h12.09z" />
+                        <path fill="#e62429" d="M16.51 3.68l-1.14.33-2.73 21.87h-1.67c-.95 0-1.59-.75-1.47-1.7l2.34-19.15L2.86 7.6 1.22 20.46c-.85 6.38 2.35 10.39 9.11 10.39H21.3l3.07-29.43-7.86 2.26z" />
                     </svg>
                     <div class="marvel-promo-copy">
                         <p class="marvel-promo-title">MARVEL UNLIMITED</p>
@@ -788,7 +859,7 @@
 
                 <button class="marvel-search-cell" id="marvelSearchToggle" type="button" aria-label="Search">
                     <svg aria-hidden="true" height="18" viewBox="0 0 32 32" width="18" xmlns="http://www.w3.org/2000/svg">
-                        <path fill="currentColor" d="M29.333 27.452l-8.706-8.706c3.196-4.187 2.599-10.135-1.365-13.604s-9.939-3.269-13.664.456a10.006 10.006 0 0013.147 15.029l8.706 8.706 1.882-1.882zM5.38 12.699a7.32 7.32 0 117.319 7.319 7.328 7.328 0 01-7.319-7.319z"/>
+                        <path fill="currentColor" d="M29.333 27.452l-8.706-8.706c3.196-4.187 2.599-10.135-1.365-13.604s-9.939-3.269-13.664.456a10.006 10.006 0 0013.147 15.029l8.706 8.706 1.882-1.882zM5.38 12.699a7.32 7.32 0 117.319 7.319 7.328 7.328 0 01-7.319-7.319z" />
                     </svg>
                 </button>
             </div>
@@ -798,14 +869,10 @@
     <!-- Primary Nav Links Bar (40px) -->
     <nav class="marvel-nav-primary d-none d-lg-flex">
         <ul class="marvel-nav-menu">
-            <li class="marvel-nav-item"><a href="#" class="marvel-nav-link">News</a></li>
+            <li class="marvel-nav-item"><a href="#koleksi" class="marvel-nav-link">latest Comics</a></li>
             <li class="marvel-nav-item"><a href="#koleksi" class="marvel-nav-link active">Comics</a></li>
             <li class="marvel-nav-item"><a href="#" class="marvel-nav-link">Characters</a></li>
-            <li class="marvel-nav-item"><a href="#" class="marvel-nav-link">Games</a></li>
-            <li class="marvel-nav-item"><a href="#" class="marvel-nav-link">Movies</a></li>
-            <li class="marvel-nav-item"><a href="#" class="marvel-nav-link">TV Shows</a></li>
-            <li class="marvel-nav-item"><a href="#" class="marvel-nav-link">Videos</a></li>
-            <li class="marvel-nav-item"><a href="#" class="marvel-nav-link">More</a></li>
+            <li class="marvel-nav-item"><a href="#free-comics" class="marvel-nav-link">free Comics</a></li>
         </ul>
     </nav>
 
@@ -816,7 +883,7 @@
                 <input type="text" name="q" id="marvelSearchInput" class="marvel-search-input" placeholder="Search Marvel books, comics, characters..." autocomplete="off">
                 <button type="submit" class="marvel-search-submit" aria-label="Submit Search">
                     <svg aria-hidden="true" height="18" viewBox="0 0 32 32" width="18" xmlns="http://www.w3.org/2000/svg">
-                        <path fill="currentColor" d="M29.333 27.452l-8.706-8.706c3.196-4.187 2.599-10.135-1.365-13.604s-9.939-3.269-13.664.456a10.006 10.006 0 0013.147 15.029l8.706 8.706 1.882-1.882zM5.38 12.699a7.32 7.32 0 117.319 7.319 7.328 7.328 0 01-7.319-7.319z"/>
+                        <path fill="currentColor" d="M29.333 27.452l-8.706-8.706c3.196-4.187 2.599-10.135-1.365-13.604s-9.939-3.269-13.664.456a10.006 10.006 0 0013.147 15.029l8.706 8.706 1.882-1.882zM5.38 12.699a7.32 7.32 0 117.319 7.319 7.328 7.328 0 01-7.319-7.319z" />
                     </svg>
                 </button>
             </form>
@@ -825,36 +892,36 @@
 </header>
 
 @if (session('success'))
-    <div class="alert alert-success alert-dismissible fade show rounded-0 mb-0 border-0 text-center py-2" style="background-color: #107c41; color: #ffffff; font-family: 'Roboto Condensed', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1px; z-index: 1030; position: relative;" role="alert">
-        <i class="fa-solid fa-circle-check me-2"></i> {{ session('success') }}
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close" style="padding: 0.75rem;"></button>
-    </div>
+<div class="alert alert-success alert-dismissible fade show rounded-0 mb-0 border-0 text-center py-2" style="background-color: #107c41; color: #ffffff; font-family: 'Roboto Condensed', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1px; z-index: 1030; position: relative;" role="alert">
+    <i class="fa-solid fa-circle-check me-2"></i> {{ session('success') }}
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close" style="padding: 0.75rem;"></button>
+</div>
 @endif
 
 <!-- Mobile Offcanvas Menu (Drawer) -->
 <div class="offcanvas offcanvas-start text-white" tabindex="-1" id="marvelMobileMenu" aria-labelledby="marvelMobileMenuLabel" style="width: 290px; background-color: #1a1a1a !important;">
     <div class="offcanvas-header border-bottom border-dark d-flex justify-content-between align-items-center py-3">
         @auth
-            <div class="d-flex align-items-center gap-2">
-                <span class="text-danger">
-                    <svg aria-hidden="true" height="20" viewBox="0 0 24 24" width="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="10"/>
-                        <circle cx="12" cy="10" r="3.2"/>
-                        <path d="M6.2 18.5a6 6 0 0 1 11.6 0"/>
-                    </svg>
-                </span>
-                <span class="fw-bold text-uppercase" style="font-family: 'Roboto Condensed', sans-serif; letter-spacing: 1px;">{{ Auth::user()->name }}</span>
-            </div>
+        <div class="d-flex align-items-center gap-2">
+            <span class="text-danger">
+                <svg aria-hidden="true" height="20" viewBox="0 0 24 24" width="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <circle cx="12" cy="10" r="3.2" />
+                    <path d="M6.2 18.5a6 6 0 0 1 11.6 0" />
+                </svg>
+            </span>
+            <span class="fw-bold text-uppercase" style="font-family: 'Roboto Condensed', sans-serif; letter-spacing: 1px;">{{ Auth::user()->name }}</span>
+        </div>
         @else
-            <div class="d-flex align-items-center gap-2">
-                <a href="{{ route('login') }}" class="text-white text-decoration-none fw-bold" style="font-family: 'Roboto Condensed', sans-serif; font-size: 13px; letter-spacing: 1px;">
-                    LOG IN
-                </a>
-                <span class="text-secondary">|</span>
-                <a href="{{ route('register') }}" class="text-danger text-decoration-none fw-bold" style="font-family: 'Roboto Condensed', sans-serif; font-size: 13px; letter-spacing: 1px;">
-                    SIGN UP
-                </a>
-            </div>
+        <div class="d-flex align-items-center gap-2">
+            <a href="{{ route('login') }}" class="text-white text-decoration-none fw-bold" style="font-family: 'Roboto Condensed', sans-serif; font-size: 13px; letter-spacing: 1px;">
+                LOG IN
+            </a>
+            <span class="text-secondary">|</span>
+            <a href="{{ route('register') }}" class="text-danger text-decoration-none fw-bold" style="font-family: 'Roboto Condensed', sans-serif; font-size: 13px; letter-spacing: 1px;">
+                SIGN UP
+            </a>
+        </div>
         @endauth
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
@@ -870,10 +937,10 @@
                 <a href="#" class="d-block text-white text-decoration-none px-4 py-3 fw-bold text-uppercase">Characters</a>
             </li>
             <li class="border-bottom border-secondary-subtle">
-                <a href="#" class="d-block text-white text-decoration-none px-4 py-3 fw-bold text-uppercase">Games</a>
+                <a href="#free-comics" class="d-block text-white text-decoration-none px-4 py-3 fw-bold text-uppercase">Free Comics</a>
             </li>
             <li class="border-bottom border-secondary-subtle">
-                <a href="#" class="d-block text-white text-decoration-none px-4 py-3 fw-bold text-uppercase">Movies</a>
+                <a href="#" class="d-block text-white text-decoration-none px-4 py-3 fw-bold text-uppercase">Latest Comics </a>
             </li>
             <li class="border-bottom border-secondary-subtle">
                 <a href="#" class="d-block text-white text-decoration-none px-4 py-3 fw-bold text-uppercase">TV Shows</a>
@@ -885,11 +952,11 @@
                 <a href="#" class="d-block text-white text-decoration-none px-4 py-3 fw-bold text-uppercase">More</a>
             </li>
             @auth
-                <li class="border-bottom border-secondary-subtle">
-                    <button type="button" class="d-block w-100 text-start text-danger text-decoration-none px-4 py-3 fw-bold text-uppercase bg-transparent border-0" onclick="document.getElementById('marvel-logout-form').submit();">
-                        <i class="fa-solid fa-right-from-bracket me-2"></i> Log Out
-                    </button>
-                </li>
+            <li class="border-bottom border-secondary-subtle">
+                <button type="button" class="d-block w-100 text-start text-danger text-decoration-none px-4 py-3 fw-bold text-uppercase bg-transparent border-0" onclick="document.getElementById('marvel-logout-form').submit();">
+                    <i class="fa-solid fa-right-from-bracket me-2"></i> Log Out
+                </button>
+            </li>
             @endauth
         </ul>
         <div class="p-4 mt-2">
@@ -915,15 +982,15 @@
         <!-- Slide 1: Anti-Venom -->
         <div class="carousel-item active">
             <div class="marvel-slide">
-                <img class="marvel-slide-img" alt="Anti-Venom"
+                <img class="marvel-slide-img" alt="Meet Anti-Venom, Venom's Polar Opposite"
                     src="{{ asset('images/banners/banner1_antivenom.webp') }}"
-                    fetchpriority="high">
+                    fetchpriority="high" loading="eager">
                 <div class="marvel-gradient-overlay"></div>
                 <div class="container-xl marvel-content-container">
                     <div class="marvel-content-box">
                         <span class="marvel-badge">Character Close-Up</span>
                         <h1 class="marvel-title">Meet Anti-Venom, Venom's Polar Opposite</h1>
-                        <p class="marvel-desc">Jelajahi asal-usul symbiote Anti-Venom dengan kekuatan penyembuh dan perseteruan ikoniknya di semesta Marvel Comics.</p>
+                        <p class="marvel-desc">Explore the origin of the Anti-Venom symbiote with its cleansing powers and iconic rivalries across the Marvel Comics universe.</p>
                         <a href="#koleksi" class="marvel-btn">
                             <span>Read Now!</span>
                             <i class="fa-solid fa-arrow-right fs-6"></i>
@@ -933,19 +1000,20 @@
             </div>
         </div>
 
-        <!-- Slide 2: One World Under Doom -->
+        <!-- Slide 2: Apocalypse -->
         <div class="carousel-item">
             <div class="marvel-slide">
-                <img class="marvel-slide-img" alt="Doctor Doom and Challengers"
-                    src="{{ asset('images/banners/banner2_doom.webp') }}">
+                <img class="marvel-slide-img" alt="Apocalypse's Rise to Power in Egypt"
+                    src="{{ asset('images/banners/banner2_apocalypse.webp') }}"
+                    loading="lazy">
                 <div class="marvel-gradient-overlay"></div>
                 <div class="container-xl marvel-content-container">
                     <div class="marvel-content-box">
-                        <span class="marvel-badge">Marvel Spotlight</span>
-                        <h1 class="marvel-title">One World Under Doom: A New Era</h1>
-                        <p class="marvel-desc">Saksikan kekuasaan mutlak Doctor Doom yang menundukkan dunia serta perlawanan gigih para pahlawan terhebat Marvel.</p>
+                        <span class="marvel-badge">X-Men '97 Explained</span>
+                        <h1 class="marvel-title">Apocalypse’s Rise to Power in Egypt</h1>
+                        <p class="marvel-desc">Trace En Sabah Nur's rise to power in ancient Egypt to become one of the oldest and most formidable mutants in Marvel history.</p>
                         <a href="#koleksi" class="marvel-btn">
-                            <span>Explore Doom!</span>
+                            <span>Explore Apocalypse!</span>
                             <i class="fa-solid fa-arrow-right fs-6"></i>
                         </a>
                     </div>
@@ -953,17 +1021,18 @@
             </div>
         </div>
 
-        <!-- Slide 3: The Avengers -->
+        <!-- Slide 3: X-Factor -->
         <div class="carousel-item">
             <div class="marvel-slide">
-                <img class="marvel-slide-img" alt="The Avengers"
-                    src="{{ asset('images/banners/banner3_avengers.webp') }}">
+                <img class="marvel-slide-img" alt="X-Factor's Team History in the Comics"
+                    src="{{ asset('images/banners/banner3_xfactor.webp') }}"
+                    loading="lazy">
                 <div class="marvel-gradient-overlay"></div>
                 <div class="container-xl marvel-content-container">
                     <div class="marvel-content-box">
-                        <span class="marvel-badge">Marvel Unlimited</span>
-                        <h1 class="marvel-title">The Avengers: Earth's Mightiest Heroes</h1>
-                        <p class="marvel-desc">Pertempuran kolosal tim Avengers menghadapi ancaman kosmik untuk melindungi seluruh eksistensi multiverse.</p>
+                        <span class="marvel-badge">X-Men '97 Explained</span>
+                        <h1 class="marvel-title">X-Factor’s Team History in the Comics</h1>
+                        <p class="marvel-desc">The complete history of the government-sponsored mutant squad and its legendary roster from Havok to Strong Guy.</p>
                         <a href="{{ route('unlimited') }}" class="marvel-btn">
                             <span>Read on Unlimited!</span>
                             <i class="fa-solid fa-arrow-right fs-6"></i>
@@ -973,19 +1042,20 @@
             </div>
         </div>
 
-        <!-- Slide 4: X-Men Krakoa -->
+        <!-- Slide 4: Cable -->
         <div class="carousel-item">
             <div class="marvel-slide">
-                <img class="marvel-slide-img" alt="X-Men: From The Ashes"
-                    src="{{ asset('images/banners/banner4_xmen.webp') }}">
+                <img class="marvel-slide-img" alt="Cable: Soldier from the Future"
+                    src="{{ asset('images/banners/banner4_cable.webp') }}"
+                    loading="lazy">
                 <div class="marvel-gradient-overlay"></div>
                 <div class="container-xl marvel-content-container">
                     <div class="marvel-content-box">
                         <span class="marvel-badge">Mutant Destiny</span>
-                        <h1 class="marvel-title">X-Men: From The Ashes</h1>
-                        <p class="marvel-desc">Era baru bangsa mutan di bawah pimpinan Cyclops dan Storm. Bangkit dari abu demi kelangsungan hidup generasi mutan.</p>
+                        <h1 class="marvel-title">Cable: Soldier from the Future</h1>
+                        <p class="marvel-desc">Follow the time-traveling warrior Nathan Summers as he leads mutant squads across dimensions and future timelines.</p>
                         <a href="#koleksi" class="marvel-btn">
-                            <span>Read Series!</span>
+                            <span>Read Cable Series!</span>
                             <i class="fa-solid fa-arrow-right fs-6"></i>
                         </a>
                     </div>
@@ -1003,15 +1073,15 @@
     </button>
 </div>
 
-<!-- PAKET LANGGANAN MARVEL UNLIMITED -->
+<!-- MARVEL UNLIMITED SUBSCRIPTION PLANS -->
 <section class="container-xl mt-5" id="langganan">
     <div class="d-flex align-items-center justify-content-between mb-4">
         <div>
             <span class="text-danger fw-bold text-uppercase" style="font-family: 'Roboto Condensed', sans-serif; font-size: 12px; letter-spacing: 1.5px;">Marvel Unlimited</span>
-            <h2 class="m-0 text-white" style="font-family: 'Roboto Condensed', sans-serif; font-weight: 800; letter-spacing: 0.5px;">Paket Langganan</h2>
+            <h2 class="m-0 text-white" style="font-family: 'Roboto Condensed', sans-serif; font-weight: 800; letter-spacing: 0.5px;">Subscription Plans</h2>
         </div>
         <a href="{{ route('unlimited') }}" class="btn btn-sm text-uppercase fw-bold text-danger" style="font-family: 'Roboto Condensed', sans-serif; letter-spacing: 1px;">
-            Buka Halaman Unlimited <i class="fa-solid fa-arrow-right ms-1"></i>
+            View Unlimited Page <i class="fa-solid fa-arrow-right ms-1"></i>
         </a>
     </div>
 
@@ -1021,15 +1091,15 @@
                 <div class="card-body d-flex flex-column justify-content-between p-4">
                     <div>
                         <h3 class="card-title text-uppercase" style="font-family: 'Roboto Condensed', sans-serif; font-weight: 800;">Monthly</h3>
-                        <p class="text-secondary" style="font-size: 13px;">Akses penuh ke 30.000+ komik digital, rilis mingguan terbaru, baca offline di iOS dan Android.</p>
+                        <p class="text-secondary" style="font-size: 13px;">Unlimited access to 30,000+ digital comics, weekly new releases, offline reading on iOS & Android.</p>
                         <div class="my-3">
                             <span class="h2 fw-bold text-white">Rp 149.000</span>
-                            <span class="text-secondary">/ bln</span>
+                            <span class="text-secondary">/ mo</span>
                         </div>
                     </div>
                     <form action="{{ route('unlimited.subscribe', 1) }}" method="POST">
                         @csrf
-                        <button type="submit" class="btn btn-outline-light w-100 fw-bold text-uppercase py-2" style="font-family: 'Roboto Condensed', sans-serif; letter-spacing: 1px;">Pilih Bulanan</button>
+                        <button type="submit" class="btn btn-outline-light w-100 fw-bold text-uppercase py-2" style="font-family: 'Roboto Condensed', sans-serif; letter-spacing: 1px;">Choose Monthly</button>
                     </form>
                 </div>
             </article>
@@ -1041,16 +1111,16 @@
                     <span class="badge bg-danger position-absolute top-0 end-0 m-3 text-uppercase" style="font-family: 'Roboto Condensed', sans-serif; font-size: 10px; letter-spacing: 1px;">Best Value</span>
                     <div>
                         <h3 class="card-title text-uppercase text-danger" style="font-family: 'Roboto Condensed', sans-serif; font-weight: 800;">Annual</h3>
-                        <p class="text-secondary" style="font-size: 13px;">Hemat >40% dibanding bulanan, termasuk 7-day free trial, dan akses Infinity Comics eksklusif.</p>
+                        <p class="text-secondary" style="font-size: 13px;">Save >40% vs monthly, includes 7-day free trial, and exclusive Infinity Comics access.</p>
                         <div class="my-3">
                             <span class="h2 fw-bold text-danger">Rp 999.000</span>
-                            <span class="text-secondary">/ thn</span>
-                            <div class="text-warning small fw-bold mt-1">~Rp 83.250/bulan</div>
+                            <span class="text-secondary">/ yr</span>
+                            <div class="text-warning small fw-bold mt-1">~Rp 83,250/mo</div>
                         </div>
                     </div>
                     <form action="{{ route('unlimited.subscribe', 2) }}" method="POST">
                         @csrf
-                        <button type="submit" class="btn btn-danger w-100 fw-bold text-uppercase py-2" style="background-color: #e62429; border: none; font-family: 'Roboto Condensed', sans-serif; letter-spacing: 1px;">Mulai Uji Coba 7 Hari</button>
+                        <button type="submit" class="btn btn-danger w-100 fw-bold text-uppercase py-2" style="background-color: #e62429; border: none; font-family: 'Roboto Condensed', sans-serif; letter-spacing: 1px;">Start 7-Day Free Trial</button>
                     </form>
                 </div>
             </article>
@@ -1062,15 +1132,15 @@
                     <span class="badge position-absolute top-0 end-0 m-3 text-uppercase" style="background-color: #e5a823; color: #000; font-family: 'Roboto Condensed', sans-serif; font-size: 10px; letter-spacing: 1px;">Membership Kit</span>
                     <div>
                         <h3 class="card-title text-uppercase" style="color: #e5a823; font-family: 'Roboto Condensed', sans-serif; font-weight: 800;">Annual Plus</h3>
-                        <p class="text-secondary" style="font-size: 13px;">Termasuk box fisik: Action figure Marvel Legends eksklusif, 2 komik varian, pin, patch & diskon Disney Store.</p>
+                        <p class="text-secondary" style="font-size: 13px;">Includes physical box: Exclusive Marvel Legends figure, 2 variant comics, pin, patch & Disney Store discount.</p>
                         <div class="my-3">
                             <span class="h2 fw-bold" style="color: #e5a823;">Rp 1.499.000</span>
-                            <span class="text-secondary">/ thn</span>
+                            <span class="text-secondary">/ yr</span>
                         </div>
                     </div>
                     <form action="{{ route('unlimited.subscribe', 3) }}" method="POST">
                         @csrf
-                        <button type="submit" class="btn w-100 fw-bold text-uppercase py-2" style="background-color: #e5a823; color: #000; font-family: 'Roboto Condensed', sans-serif; letter-spacing: 1px;">Gabung Annual Plus</button>
+                        <button type="submit" class="btn w-100 fw-bold text-uppercase py-2" style="background-color: #e5a823; color: #000; font-family: 'Roboto Condensed', sans-serif; letter-spacing: 1px;">Join Annual Plus</button>
                     </form>
                 </div>
             </article>
@@ -1078,44 +1148,174 @@
     </div>
 </section>
 
+<!-- FEATURED BOOKS -->
 <section class="container-xl mt-5" id="koleksi">
     <div class="d-flex align-items-center justify-content-between mb-3">
-        <h2 class="m-0 text-dark">Buku pilihan</h2>
-        <span class="text-secondary">{{ $books->count() }} buku</span>
+        <h2 class="m-0 text-dark">Featured Books</h2>
+        <span class="text-secondary">{{ $books->count() }} books</span>
     </div>
 
     @forelse ($books as $book)
-        @if ($loop->first)
-            <div class="row row-cards">
+    @if ($loop->first)
+    <div class="row row-cards">
         @endif
-                <div class="col-6 col-md-4 col-lg-3">
-                    <article class="card h-100">
-                        <img class="card-img-top book-cover" src="{{ $book->cover }}" alt="Cover {{ $book->title }}">
-                        <div class="card-body">
-                            <h3 class="h3 mb-2">{{ $book->title }}</h3>
-                            <p class="text-secondary mb-0">Rp {{ number_format($book->price, 0, ',', '.') }}</p>
-                        </div>
-                    </article>
+        <div class="col-6 col-md-4 col-lg-3">
+            <article class="card h-100">
+                <img class="card-img-top book-cover" src="{{ $book->cover }}" alt="Cover {{ $book->title }}">
+                <div class="card-body">
+                    <h3 class="h3 mb-2">{{ $book->title }}</h3>
+                    <p class="text-secondary mb-0">Rp {{ number_format($book->price, 0, ',', '.') }}</p>
                 </div>
-        @if ($loop->last)
-            </div>
-        @endif
-    @empty
-        <div class="empty">
-            <p class="empty-title">Belum ada buku</p>
-            <p class="empty-subtitle text-secondary">Data buku akan tampil di sini setelah ditambahkan.</p>
+            </article>
         </div>
+        @if ($loop->last)
+    </div>
+    @endif
+    @empty
+    <div class="empty">
+        <p class="empty-title">No books available</p>
+        <p class="empty-subtitle text-secondary">Book catalog will appear here once added.</p>
+    </div>
     @endforelse
 </section>
 
+<!-- FREE BOOKS & COMICS (PDF) (RP 129,000 -> RP 0) -->
+<section class="container-xl mt-5 mb-5" id="free-comics">
+    <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 mb-4 pb-3 border-bottom">
+        <div>
+            <h2 class="m-0 text-dark fw-bold" style="font-family: 'Roboto Condensed', sans-serif; letter-spacing: 0.5px; text-transform: uppercase;">
+                Free Books & Comics (PDF)
+            </h2>
+            <p class="text-secondary mb-0 small mt-1">
+                Download and read official Marvel digital comics in high-resolution PDF format for free, discounted from Rp 129,000 to Rp 0.
+            </p>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+            <span class="badge bg-light text-dark border py-2 px-3 fw-bold" style="font-family: 'Roboto Condensed', sans-serif; letter-spacing: 1px;">
+                <i class="fa-solid fa-book-open text-danger me-1"></i> {{ $freeBooks->count() }} FREE COMICS
+            </span>
+        </div>
+    </div>
+
+    @forelse ($freeBooks as $book)
+    @if ($loop->first)
+    <div class="row row-cards g-3 g-md-4">
+        @endif
+        <div class="col-6 col-md-4 col-lg-3">
+            <article class="card h-100 shadow-sm border">
+                <!-- Cover Container with Badges -->
+                <div class="position-relative overflow-hidden">
+                    <span class="badge bg-danger position-absolute top-0 start-0 m-2 fw-bold text-uppercase shadow-sm" style="font-family: 'Roboto Condensed', sans-serif; font-size: 10px; letter-spacing: 1px; z-index: 2;">
+                        <i class="fa-solid fa-file-pdf me-1"></i> PDF
+                    </span>
+                    <span class="badge bg-success position-absolute top-0 end-0 m-2 fw-bold text-uppercase shadow-sm" style="font-family: 'Roboto Condensed', sans-serif; font-size: 10px; letter-spacing: 1px; z-index: 2;">
+                        FREE
+                    </span>
+                    <img class="card-img-top book-cover" src="{{ $book->cover }}" alt="Cover {{ $book->title }}" loading="lazy">
+                </div>
+
+                <!-- Card Body -->
+                <div class="card-body d-flex flex-column justify-content-between p-3">
+                    <div>
+                        <!-- Judul Buku / Title -->
+                        <h3 class="card-title text-dark fw-bold mb-1 text-truncate-2" title="{{ $book->title }}" style="font-family: 'Roboto Condensed', sans-serif; font-size: 16px; line-height: 1.25; min-height: 40px;">
+                            {{ $book->title }}
+                        </h3>
+
+                        <!-- Penulis / Writer -->
+                        <p class="text-secondary small mb-3">
+                            <i class="fa-solid fa-pen-nib text-danger me-1"></i> Author:
+                            <span class="text-dark fw-semibold">{{ $book->writer ?? 'Marvel Comics' }}</span>
+                        </p>
+                    </div>
+
+                    <div>
+                        <!-- Price: Coret 129rb Jadi Rp 0 -->
+                        <div class="d-flex align-items-baseline justify-content-between p-2 mb-3 rounded bg-light border">
+                            <div class="d-flex flex-column">
+                                <span class="text-secondary text-uppercase" style="font-size: 9px; letter-spacing: 0.5px;">Original Price</span>
+                                <del class="text-secondary text-decoration-line-through fw-bold" style="font-size: 12px;">
+                                    Rp {{ number_format($book->original_price ?? 129000, 0, ',', '.') }}
+                                </del>
+                            </div>
+                            <div class="text-end">
+                                <span class="text-success text-uppercase fw-bold" style="font-size: 9px; letter-spacing: 0.5px;">Now</span>
+                                <div class="text-success fw-bold fs-3" style="font-family: 'Roboto Condensed', sans-serif; line-height: 1;">
+                                    Rp {{ number_format($book->price, 0, ',', '.') }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Action Button: Baca / Download PDF -->
+                        <button type="button" class="btn btn-danger w-100 fw-bold text-uppercase py-2 marvel-btn-clip d-flex align-items-center justify-content-center gap-2" onclick="openPdfModal('{{ addslashes($book->title) }}', '{{ addslashes($book->writer ?? 'Marvel Comics') }}', '{{ $book->cover }}')">
+                            <i class="fa-solid fa-file-pdf"></i>
+                            <span>READ FREE PDF</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+        </div>
+        @if ($loop->last)
+    </div>
+    @endif
+    @empty
+    <div class="empty text-center py-5">
+        <div class="empty-icon text-danger mb-3">
+            <i class="fa-solid fa-book-open fs-1"></i>
+        </div>
+        <p class="empty-title text-dark h3 fw-bold">No free comics available</p>
+        <p class="empty-subtitle text-secondary">Free digital comics and books catalog will appear here.</p>
+    </div>
+    @endforelse
+</section>
+
+<!-- MODAL READ / DOWNLOAD PDF GRATIS -->
+<div class="modal fade" id="marvelPdfModal" tabindex="-1" aria-labelledby="marvelPdfModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark text-white border border-secondary shadow-lg rounded-0">
+            <div class="modal-header border-bottom border-secondary py-3">
+                <div class="d-flex align-items-center gap-2">
+                    <span class="badge bg-danger text-uppercase fw-bold"><i class="fa-solid fa-file-pdf me-1"></i> E-Book PDF</span>
+                    <h5 class="modal-title fw-bold text-uppercase m-0" id="marvelPdfModalLabel" style="font-family: 'Roboto Condensed', sans-serif; letter-spacing: 1px;">Access Free Comic</h5>
+                </div>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4">
+                <div class="d-flex gap-3 align-items-start mb-3">
+                    <img id="modalCover" src="" alt="Cover" class="rounded shadow-sm" style="width: 100px; aspect-ratio: 2/3; object-fit: cover; border: 1px solid #444;">
+                    <div>
+                        <h4 id="modalTitle" class="fw-bold text-white mb-1" style="font-family: 'Roboto Condensed', sans-serif; line-height: 1.2;">Book Title</h4>
+                        <p class="text-secondary small mb-2"><i class="fa-solid fa-pen-nib text-danger me-1"></i> Author: <strong id="modalWriter" class="text-white"></strong></p>
+                        <div class="d-flex align-items-center gap-2">
+                            <del class="text-secondary text-decoration-line-through small">Rp 129.000</del>
+                            <span class="text-success fw-bold fs-4">Rp 0 (FREE)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="alert alert-dark border-secondary py-2 small mb-3 text-secondary">
+                    <i class="fa-solid fa-circle-info text-danger me-2"></i> Official Marvel digital comic file available in high-resolution HD with crystal clear artwork and storytelling.
+                </div>
+                <div class="d-flex flex-column gap-2">
+                    <a id="modalDownloadBtn" href="javascript:void(0)" class="btn btn-danger w-100 fw-bold text-uppercase py-2" onclick="startDownloadPdf()" style="letter-spacing: 1px;">
+                        <i class="fa-solid fa-download me-2"></i> Download Full PDF (Free)
+                    </a>
+                    <button type="button" class="btn btn-outline-light w-100 fw-bold text-uppercase py-2" data-bs-dismiss="modal" style="letter-spacing: 1px;">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
         const searchToggle = document.getElementById('marvelSearchToggle');
         const searchBar = document.getElementById('marvelSearchBar');
         const searchInput = document.getElementById('marvelSearchInput');
 
         if (searchToggle && searchBar) {
-            searchToggle.addEventListener('click', function () {
+            searchToggle.addEventListener('click', function() {
                 searchBar.classList.toggle('d-none');
                 if (!searchBar.classList.contains('d-none') && searchInput) {
                     searchInput.focus();
@@ -1123,5 +1323,17 @@
             });
         }
     });
+
+    function openPdfModal(title, writer, cover) {
+        document.getElementById('modalTitle').textContent = title;
+        document.getElementById('modalWriter').textContent = writer;
+        document.getElementById('modalCover').src = cover;
+        const modal = new bootstrap.Modal(document.getElementById('marvelPdfModal'));
+        modal.show();
+    }
+
+    function startDownloadPdf() {
+        alert('Downloading free digital comic PDF... Enjoy reading!');
+    }
 </script>
 @endsection

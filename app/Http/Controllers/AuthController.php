@@ -29,9 +29,9 @@ class AuthController extends Controller
             'email' => ['required', 'email'],
             'password' => ['required', 'string'],
         ], [
-            'email.required' => 'Email wajib diisi.',
-            'email.email' => 'Format email tidak valid.',
-            'password.required' => 'Kata sandi wajib diisi.',
+            'email.required' => 'Email address is required.',
+            'email.email' => 'Please enter a valid email address.',
+            'password.required' => 'Password is required.',
         ]);
 
         $remember = $request->boolean('remember');
@@ -39,11 +39,11 @@ class AuthController extends Controller
         if (Auth::attempt($credentials, $remember)) {
             $request->session()->regenerate();
 
-            return redirect()->intended(route('home'))->with('success', 'Selamat datang kembali, ' . Auth::user()->name . '!');
+            return redirect()->intended(route('home'))->with('success', 'Welcome back, ' . Auth::user()->name . '!');
         }
 
         return back()->withErrors([
-            'email' => 'Email atau kata sandi yang Anda masukkan salah.',
+            'email' => 'The provided email or password does not match our records.',
         ])->onlyInput('email');
     }
 
@@ -68,25 +68,25 @@ class AuthController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
         ], [
-            'name.required' => 'Nama lengkap wajib diisi.',
-            'email.required' => 'Email wajib diisi.',
-            'email.email' => 'Format email tidak valid.',
-            'email.unique' => 'Email ini sudah terdaftar.',
-            'password.required' => 'Kata sandi wajib diisi.',
-            'password.min' => 'Kata sandi minimal 6 karakter.',
-            'password.confirmed' => 'Konfirmasi kata sandi tidak cocok.',
+            'name.required' => 'Full name is required.',
+            'email.required' => 'Email address is required.',
+            'email.email' => 'Please enter a valid email address.',
+            'email.unique' => 'This email address is already registered.',
+            'password.required' => 'Password is required.',
+            'password.min' => 'Password must be at least 6 characters.',
+            'password.confirmed' => 'Password confirmation does not match.',
         ]);
 
         $user = User::create([
             'name' => $validated['name'],
             'email' => $validated['email'],
-            'password' => Hash::make($validated['password']),
+            'password' => $validated['password'],
         ]);
 
         Auth::login($user);
         $request->session()->regenerate();
 
-        return redirect()->route('home')->with('success', 'Akun berhasil didaftarkan! Selamat datang di Marvel Comics.');
+        return redirect()->route('home')->with('success', 'Account created successfully! Welcome to Marvel Comics.');
     }
 
     /**
@@ -98,6 +98,6 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->route('home')->with('success', 'Anda telah berhasil keluar.');
+        return redirect()->route('home')->with('success', 'You have been logged out successfully.');
     }
 }
